@@ -16,6 +16,7 @@ Multiple Imputation by Chained Equations
 * [] Multiple imputation datasets and method for combining them together
 * [] More Models
 * [] Categorical / Binary variables
+* [] One-hot / multi-hot columns
 * [] Count variables
 * [] Use local seed(s) / reset global seed
 * [] Add strict Tables (MLJ scientific types) vs matrix (variable type) support
