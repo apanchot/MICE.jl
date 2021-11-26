@@ -22,3 +22,4 @@ Multiple Imputation by Chained Equations
 * [] Multithread support
 * [] Speed / memory optimization
 * [] Expose model, 0th iteration, column order kwargs to user
+* [] GPU support
