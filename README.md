@@ -17,9 +17,11 @@ Multiple Imputation by Chained Equations
 * [] More Models
 * [] Categorical / Binary variables
 * [] Count variables
-* [] Use local seed / reset global seed
-* [] Add strict Tables vs matrix support
+* [] Use local seed(s) / reset global seed
+* [] Add strict Tables (MLJ scientific types) vs matrix (variable type) support
 * [] Multithread support
 * [] Speed / memory optimization
 * [] Expose model, 0th iteration, column order kwargs to user
 * [] GPU support
+* [] Standardizer / Normalizer / Box-Cox transform 
+* [] Iteration convergence metrics
