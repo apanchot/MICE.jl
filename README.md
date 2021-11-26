@@ -1,5 +1,5 @@
 # MICE.jl
-Multivariate Imputation by Chained Equations
+Multiple Imputation by Chained Equations
 
 ## Features
 * MLJ linear regression models / only for numerical at the moment
