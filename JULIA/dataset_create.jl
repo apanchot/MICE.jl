@@ -7,7 +7,7 @@ module DatasetCreate
     include("imputer.jl")
     import Random
 
-    function createdataset(dat,n,models,missingmatrix; ord::Symbol = :left)
+    function createdataset(dat,n,models,missingmatrix,verbosity; ord::Symbol = :left)
         data = copy(dat)
         ZeroImpute.zeroimpute!(data,method=:rand) # convert data into filled dataset, 0th iteration
         order = 1:length(data[1,:])
@@ -16,16 +16,22 @@ module DatasetCreate
         elseif ord == :rand
             order = Random.randperm(length(data[1,:]))
         end
-        
+
         for iteration in 1:n
-            cycle!(data, models, missingmatrix, order)
+            if verbosity > 0
+                println("iteration: ", iteration)
+            end
+            cycle!(data, models, missingmatrix, order, verbosity)
         end
         return data
     end
 
 
-    function cycle!(data, models, missingmatrix, order) # control one full cycle in iteration
+    function cycle!(data, models, missingmatrix, order, verbosity) # control one full cycle in iteration
         for targetcol in order
+            if verbosity > 1
+                println("column: ",targetcol)
+            end
             Impute.impute!(data, models, missingmatrix, targetcol)
         end
     end

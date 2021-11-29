@@ -1,6 +1,7 @@
 import CSV
 using DataFrames
 using MLJ
+import FileIO
 
 include("mice.jl")
 
@@ -23,3 +24,6 @@ df2
 dfog = CSV.read("iris.csv",DataFrame)[:,1:4]
 
 sum(Matrix(dfog.-df2))
+
+df=FileIO.load("/Users/alexpanchot/Documents/Caller_preds/caller_predictions/fulldata.jld2","x")
+@time  Mice.mice(df,n=1,verbosity=5)

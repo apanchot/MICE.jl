@@ -17,6 +17,7 @@ module Mice
                 m::Int = 1, # number of datasets
                 n::Int = 10, # number of iterations for each dataset
                 seed::Int = -1, # RNG seed / not used yet
+                verbosity::Int=1,
                 modelnames::Vector{String} = ["LinearRegressor", "MultinomialClassifier", "LogisticClassifier", "nothing"] # model type to use for imputation: numerical, categorical, binary, count
             )
 
@@ -27,7 +28,7 @@ module Mice
         models = Modelload.modelload(modelnames)
         missingmatrix = ZeroImpute.missingmatrix(data) # 1 exists, 0 missing
         
-        return DatasetCreate.createdataset(data,n,models,missingmatrix)
+        return DatasetCreate.createdataset(data,n,models,missingmatrix,verbosity)
         
     end
 

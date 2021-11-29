@@ -14,6 +14,7 @@ module Modelload
         models = Vector{Any}(undef,length(modelnames))
         for modelid in 1:length(modelnames) # load models from MLJ 
             if modelnames[modelid] != "nothing"
+                # modelload2(modelnames[modelid], kwargs)
                 try
                     models[modelid] = modelload2(modelnames[modelid], kwargs)
                 catch

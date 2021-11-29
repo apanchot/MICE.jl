@@ -12,12 +12,12 @@ module Impute
         x = data[:,1:end .!= targetcol]
         y = data[:,targetcol]
 
-        train = trues(length(data[:,targetcol]))
-        for i in 1:length(data[:,targetcol])
-            if missingmatrix[i,targetcol] == 0
-                train[i] = 0
-            end
-        end
+        train = missingmatrix[:,targetcol] #trues(length(data[:,targetcol]))
+        # for i in 1:length(data[:,targetcol])
+        #     if missingmatrix[i,targetcol] == 0
+        #         train[i] = 0
+        #     end
+        # end
 
         xtrain = x[train,:]
         ytrain = y[train]
